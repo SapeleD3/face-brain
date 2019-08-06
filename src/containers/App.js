@@ -85,17 +85,17 @@ class App extends Component {
 
     onSubmit = () => {
         this.setState({ imageUrl: this.state.input });
-        fetch('http://localhost:6536/imageurl', {
+        fetch('https://enigmatic-stream-62550.herokuapp.com/imageurl', {
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
                 input: this.state.input 
             })
          })
-        .then(response => response.json())
+        .then(res => res.json())
         .then(response => {
              if(response) {
-                fetch('http://localhost:6536/image', {
+                fetch('https://enigmatic-stream-62550.herokuapp.com/image', {
                     method: 'put',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
